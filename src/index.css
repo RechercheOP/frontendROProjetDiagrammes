@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@layer base {
+    :root {
+        /* Définir les couleurs de base comme variables CSS si vous préférez */
+        /* --background: 0 0% 100%;
+        --foreground: 240 10% 3.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 240 10% 3.9%; */
+        /* ... etc pour toutes les couleurs définies dans tailwind.config.js */
+
+        --radius: 0.5rem; /* Variable pour border-radius */
+        --header-height: 4rem; /* Hauteur du header pour calculs comme sticky sidebar/graph height */
+    }
+
+    /* Vous pouvez définir un mode sombre ici avec .dark */
+    /* .dark { ... } */
+
+    * {
+    }
+
+    body {
+        font-feature-settings: "rlig" 1, "calt" 1; /* Ligatures standard */
+        /* Considérer d'ajouter une police plus "Apple-like" comme Inter ou San Francisco (si licence permet) */
+        /* @apply font-sans; (si vous configurez une police personnalisée dans tailwind.config.js) */
+    }
+}
+
+/* Styles spécifiques pour la scrollbar (optionnel, style moderne) */
+/* Ajoutez ceci à votre fichier de styles global */
+
+/* Styles pour la scrollbar personnalisée */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Pour Firefox */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour la scrollbar principale */
+::-webkit-scrollbar {
+    width: 1px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(241, 241, 241, 0.84);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(193, 193, 193, 0.77);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(168, 168, 168, 0.8);
+}
+
+/* Pour Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(193, 193, 193, 0.76) rgba(241, 241, 241, 0.77);
+}
+
+
+
+/********************************************************************/
+canvas{
+    min-height: 500px;
+}
+
+input{
+    outline: none;
+
+}
+input:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: inherit; /* Optionnel - conserve la couleur de bordure normale */
+}
+select:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: inherit; /* Optionnel - conserve la couleur de bordure normale */
+}
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: none;
+    padding-right: 1.5rem; /* Espace pour icône personnalisée */
+}
