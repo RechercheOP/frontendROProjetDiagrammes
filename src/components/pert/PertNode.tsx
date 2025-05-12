@@ -81,7 +81,7 @@ const PertNode: React.FC<NodeProps<PertNodeData>> = ({
 
     // Déterminer une classe CSS en fonction du type de nœud
     const getNodeClassName = () => {
-        let className = 'rounded-lg border p-4 shadow-md';
+        let className = 'rounded-xl border p-4 shadow-md';
 
         if (type === 'start' || type === 'end') {
             className += ' min-w-[100px] min-h-[60px]';
