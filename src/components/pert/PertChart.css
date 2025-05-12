@@ -1,0 +1,115 @@
+/* Styles personnalisés pour le diagramme PERT */
+
+/* Style global du conteneur */
+.react-flow {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Personnalisation du fond */
+.react-flow__background {
+    opacity: 0.5;
+}
+
+/* Personnalisation des contrôles */
+.react-flow__controls {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.react-flow__controls-button {
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    color: #111827;
+    transition: all 0.2s ease;
+    width: 22px;
+    height: 22px;
+}
+
+.react-flow__controls-button svg {
+    width: 12px;
+    height: 12px;
+}
+
+.react-flow__controls-button:hover {
+    background-color: #f3f4f6;
+}
+
+/* Styles pour le mode sombre */
+:global(.dark) .react-flow__controls {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+:global(.dark) .react-flow__controls-button {
+    background-color: #1f2937;
+    border-bottom: 1px solid #374151;
+    color: #f9fafb;
+}
+
+:global(.dark) .react-flow__controls-button:hover {
+    background-color: #2d3748;
+}
+
+/* Animation de transition douce pour les nœuds */
+.react-flow__node {
+    transition: all 0.2s ease-in-out;
+}
+
+.react-flow__node:hover {
+    transform: translateY(-3px);
+    filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.1));
+}
+
+/* Animation de surbrillance pour le chemin critique */
+@keyframes pulseCriticalPath {
+    0% {
+        filter: drop-shadow(0px 0px 2px rgba(255, 77, 79, 0.2));
+    }
+    50% {
+        filter: drop-shadow(0px 0px 5px rgba(255, 77, 79, 0.5));
+    }
+    100% {
+        filter: drop-shadow(0px 0px 2px rgba(255, 77, 79, 0.2));
+    }
+}
+
+.critical-path {
+    animation: pulseCriticalPath 2s infinite;
+}
+
+/* Style pour le tooltip personnalisé */
+.pert-tooltip {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    color: white;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    z-index: 1000;
+    max-width: 280px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pert-tooltip__title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.pert-tooltip__content {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5px 10px;
+}
+
+.pert-tooltip__label {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+}
+
+.pert-tooltip__value {
+    font-weight: 500;
+}
